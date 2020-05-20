@@ -14,7 +14,8 @@ export default StyleSheet.create({
     },
     contentContainer: {
         paddingHorizontal: 25,
-        paddingVertical: 10
+        paddingVertical: 10,
+        marginTop: 10
     },
     btnContainer: {
         alignItems: 'center',

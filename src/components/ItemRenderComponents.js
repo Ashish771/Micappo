@@ -47,7 +47,7 @@ export class RenderItemWithDateTime extends Component {
 export class RenderItemWithDetail extends Component {
     render() {
         return (
-            <View style={styles.itemContainer}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('DoctorDetail')} style={styles.itemContainer}>
                 <View style={styles.itemDetailContainer}>
                     <View style={styles.itemInsideContainer}>
                         <Text style={styles.itemTitle}>Ultima llamada</Text>
@@ -68,7 +68,7 @@ export class RenderItemWithDetail extends Component {
                     <Text style={styles.itemDateTitle}>22/10/2018</Text>
                     <Text style={styles.itemSubTitle}>11:23</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 }
@@ -140,6 +140,21 @@ export class RenderItemWithDateTimeWithBtn extends Component {
     }
 }
 
+export class RenderItemDocument extends Component {
+    render() {
+        return (
+            <View style={styles.addDocumentContainer}>
+                <View style={styles.addDocumentContent}>
+                    <Text style={styles.addDocumentText}>Ver receta</Text>
+                    <Text style={styles.addDocumentSubText}>Caso #3245000</Text>
+                    <Text style={styles.addDocumentSubText}>Caso 22/10/2020</Text>
+                </View>
+                <Icon name='file-document' type='MaterialCommunityIcons' style={styles.addDocumentIcon} />
+            </View>
+        )
+    }
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1
@@ -190,7 +205,7 @@ const styles = StyleSheet.create({
     timeDateIcon: { color: Colors.White, paddingVertical: 5 },
     timeDateText: { color: Colors.White, fontSize: 16, paddingVertical: 5 },
     itemDateTimeContent: { flex: 1, paddingHorizontal: 15, justifyContent: 'center' },
-    itemDateTimeIconContainer: { flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: Colors.TintColor, borderTopRightRadius: 5, borderBottomRightRadius: 5 },
+    itemDateTimeIconContainer: { flexDirection: 'row', alignItems: 'center', backgroundColor: Colors.TintColor, borderTopRightRadius: 5, borderBottomRightRadius: 5 },
     itemDateContent: { alignItems: 'center', justifyContent: 'center', paddingHorizontal: 15, paddingVertical: 5 },
     itemDetailContainer: { flex: 1, paddingHorizontal: 15, justifyContent: 'center', paddingVertical: 10 },
     itemSortDefineIcon: { color: 'green', paddingLeft: 10, fontSize: 25, top: -2 },
@@ -201,4 +216,44 @@ const styles = StyleSheet.create({
     itemImageDateInfo: { alignItems: 'flex-end', justifyContent: 'center', paddingHorizontal: 15, paddingVertical: 5 },
     itemDateTitle: { color: Colors.LightGray, fontWeight: '600', fontSize: 16, marginBottom: 5 },
     itemInfoContainer: { flex: 1, paddingHorizontal: 15, justifyContent: 'center', paddingTop: 15 },
+
+    addDocumentContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingVertical: 15,
+        paddingHorizontal: 15, 
+        backgroundColor: Colors.TintColor,
+        borderColor: Colors.MiduamGray,
+        borderWidth: 1,
+        borderRadius: 5,
+        marginVertical: 8,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.27,
+        shadowRadius: 4.65,
+
+        elevation: 6,
+    },
+    addDocumentContent: { 
+        flex: 1, 
+    },
+    addDocumentText: { 
+        color: Colors.White, 
+        fontSize: 17, 
+        fontWeight: 'bold',
+    },
+    addDocumentSubText: { 
+        color: Colors.DarkWhite, 
+        fontSize: 14, 
+        fontWeight: '500', 
+        marginTop: 3
+    },
+    addDocumentIcon: { 
+        color: Colors.White,
+        fontSize: 40,
+        marginHorizontal: 5
+    }
 });

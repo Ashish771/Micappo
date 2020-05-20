@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar, View, Text, Image, TouchableOpacity, ScrollView, Linking } from 'react-native';
+import { StatusBar, View, Text, Image, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import { Container, Content, Icon } from 'native-base';
 import connect from './connect';
 import styles from './styles';
@@ -22,11 +22,15 @@ class ReminderScreen extends Component {
 
         return (
             <Container style={globalStyles.tabContainer}>
-                <Content>
-                <View style={styles.headerContainer}>
+                <StatusBar
+                    barStyle='dark-content'
+                    backgroundColor={Colors.White}
+                />
+                <SafeAreaView>
+                    <View style={styles.headerContainer}>
                         <View style={styles.profileContainer}>
                             <View style={styles.container}>
-                                <Text style={styles.title}>Historial de Llamadas y Citas</Text>
+                                <Text style={styles.title}>Examenes y Recetas</Text>
                                 <Text style={styles.subTitle}>Jerry Marroquin</Text>
                             </View>
                         </View>
@@ -70,6 +74,8 @@ class ReminderScreen extends Component {
                             </ScrollView>
                         </View>
                     }
+                </SafeAreaView>
+                <Content>
                     <View style={styles.listContainer}>
                         <RenderItemWithTime />
                         <RenderItemWithDateTime />

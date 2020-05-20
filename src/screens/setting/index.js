@@ -6,7 +6,7 @@ import styles from './styles';
 import globalStyles from '../../constants/globalStyles';
 import Colors from '../../constants/colors';
 
-class SettingScreen extends Component {
+class AboutDetailScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,6 @@ class SettingScreen extends Component {
                     barStyle='dark-content'
                     backgroundColor={Colors.Background}
                 />
-                <SafeAreaView />
                 <SafeAreaView style={styles.container}>
                     <View style={styles.contentContainer}>
                         <View>
@@ -69,4 +68,4 @@ class SettingScreen extends Component {
     }
 }
 
-export default connect(SettingScreen);
+export default connect(AboutDetailScreen);

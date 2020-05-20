@@ -4,7 +4,7 @@ export default Colors = {
     TabBackground: '#0a94ff',
     Background: '#0a94ff',
     White: 'white',
-    DarkWhite: '',
+    DarkWhite: '#ACDEFF',
     Black: 'black',
     LightGray: '#ababab',
     MiduamGray: '#e0e0e0',

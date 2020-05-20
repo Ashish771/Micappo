@@ -12,9 +12,16 @@ import SignupScreen from '../screens/signup';
 import DashboardScreen from '../screens/dashboard';
 import SettingScreen from '../screens/setting';
 import ProfileScreen from '../screens/profile';
+import DoctorDetailScreen from '../screens/doctorDetail';
+
+import DocumentScreen from '../screens/document';
 
 import HistoryScreen from '../screens/history';
+
 import ReminderScreen from '../screens/reminder';
+
+import AboutScreen from '../screens/about';
+import AboutDetailScreen from '../screens/aboutDetail';
 
 import TabBottomBar from '../components/TabBottomBar';
 import { getResponsiveHeight } from '../helper/utils';
@@ -28,6 +35,17 @@ const DashboardStack = createStackNavigator({
     },
     Profile: {
         screen: ProfileScreen
+    },
+    DoctorDetail: {
+        screen: DoctorDetailScreen
+    }
+}, {
+    headerMode: 'none'
+});
+
+const DocumentStack = createStackNavigator({
+    Document: {
+        screen: DocumentScreen,
     }
 }, {
     headerMode: 'none'
@@ -49,6 +67,17 @@ const ReminderStack = createStackNavigator({
     headerMode: 'none'
 });
 
+const AboutStack = createStackNavigator({
+    About: {
+        screen: AboutScreen,
+    },
+    AboutDetail: {
+        screen: AboutDetailScreen
+    }
+}, {
+    headerMode: 'none'
+});
+
 const BaseNavigator = createBottomTabNavigator({
     Dashboard: {
         screen: DashboardStack,
@@ -57,7 +86,19 @@ const BaseNavigator = createBottomTabNavigator({
                 <Icon
                     name='view-dashboard'
                     type='MaterialCommunityIcons'
-                    style={{ color: tintColor, fontSize: getResponsiveHeight(4) }}
+                    style={{ color: tintColor, fontSize: getResponsiveHeight(3.8) }}
+                />
+            )
+        })
+    },
+    Document: {
+        screen: DocumentStack,
+        navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => (
+                <Icon
+                    name='file-document'
+                    type='MaterialCommunityIcons'
+                    style={{ color: tintColor, fontSize: getResponsiveHeight(3.8) }}
                 />
             )
         })
@@ -68,8 +109,8 @@ const BaseNavigator = createBottomTabNavigator({
             tabBarIcon: ({ tintColor }) => (
                 <Icon
                     name='history'
-                    type='MaterialCommunityIcons'
-                    style={{ color: tintColor, fontSize: getResponsiveHeight(4) }}
+                    type='FontAwesome5'
+                    style={{ color: tintColor, fontSize: getResponsiveHeight(3.5) }}
                 />
             )
         })
@@ -79,9 +120,21 @@ const BaseNavigator = createBottomTabNavigator({
         navigationOptions: () => ({
             tabBarIcon: ({ tintColor }) => (
                 <Icon
-                    name='alarm'
-                    type='MaterialCommunityIcons'
-                    style={{ color: tintColor, fontSize: getResponsiveHeight(4) }}
+                    name='clock'
+                    type='FontAwesome5'
+                    style={{ color: tintColor, fontSize: getResponsiveHeight(3.5) }}
+                />
+            )
+        })
+    },
+    About: {
+        screen: AboutStack,
+        navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => (
+                <Icon
+                    name='heartbeat'
+                    type='FontAwesome5'
+                    style={{ color: tintColor, fontSize: getResponsiveHeight(3.5) }}
                 />
             )
         })

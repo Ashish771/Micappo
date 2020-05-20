@@ -88,7 +88,7 @@ export default StyleSheet.create({
         paddingVertical: 15 
     },
     tabBarText: { 
-        fontWeight: '500', 
+        fontWeight: '600', 
         fontSize: 17 
     },
     itemContainer: { 

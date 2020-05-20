@@ -43,12 +43,17 @@ export default CustomBottomBar = (props) => {
                         case 'Dashboard':
                             animate(route.key, 0)
                             break
-                        case 'History':
+                        case 'Document':
                             animate(route.key, 1)
                             break
-                        case 'Reminder':
+                        case 'History':
                             animate(route.key, 2)
                             break
+                        case 'Reminder':
+                            animate(route.key, 3)
+                            break
+                        case 'About': 
+                            animate(route.key, 4)
                     }
                 }}
                 style={{
