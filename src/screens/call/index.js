@@ -42,7 +42,7 @@ class CallModalScreen extends Component {
     }
 
     render() {
-        const { notificationSwitch, localizationSwitch, DATA } = this.state;
+        const { DATA } = this.state;
         const { callModalVisible, onCloseModal } = this.props;
 
         return (
@@ -56,8 +56,7 @@ class CallModalScreen extends Component {
                         barStyle='dark-content'
                         backgroundColor={Colors.Background}
                     />
-                    <SafeAreaView />
-                    <View style={styles.container}>
+                    <SafeAreaView style={styles.container}>
                         <View style={styles.contentContainer}>
                             <View>
                                 <TouchableOpacity onPress={() => onCloseModal()} style={globalStyles.backBtnContainer}>
@@ -105,7 +104,7 @@ class CallModalScreen extends Component {
                                 </View>
                             </Content>
                         </View>
-                    </View>
+                    </SafeAreaView>
                 </Container>
             </Modal>
         );

@@ -184,7 +184,7 @@ const switchNavigator = createSwitchNavigator({
         screen: BaseNavigator
     }
 }, {
-    initialRouteName: 'Home'
+    initialRouteName: 'Auth'
 });
 
 export default switchNavigator;

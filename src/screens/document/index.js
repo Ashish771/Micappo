@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StatusBar, View, Text, TouchableOpacity, ScrollView, SafeAreaView, Image } from 'react-native';
+import { StatusBar, Animated, View, Text, TouchableOpacity, ScrollView, SafeAreaView, Image } from 'react-native';
 import { Container, Content, Icon } from 'native-base';
+import AnimatedHideView from 'react-native-animated-hide-view';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import connect from './connect';
 import styles from './styles';
@@ -8,6 +9,7 @@ import globalStyles from '../../constants/globalStyles';
 import Colors from '../../constants/colors';
 import { getResponsiveWidth, WIDTH } from '../../helper/utils';
 import { RenderItemDocument } from '../../components/ItemRenderComponents';
+import CallModalScreen from '../call';
 
 class DocumentScreen extends Component {
     constructor(props) {
@@ -18,8 +20,31 @@ class DocumentScreen extends Component {
                 { key: 'Examenes', title: 'Examenes' },
                 { key: 'Recetas', title: 'Recetas' }
             ],
-            isFamilyShow: false
+            isFamilyShow: true,
+            animationValue: new Animated.Value(142.5),
+            callModalVisible: false,
         };
+    }
+
+    toggleAnimation = () => {
+        const { isFamilyShow, animationValue } = this.state;
+
+        if (isFamilyShow) {
+            Animated.timing(animationValue, {
+                toValue: 0,
+                timing: 1000
+            }).start(() => {
+                this.setState({ isFamilyShow: false })
+            });
+        }
+        else {
+            Animated.timing(animationValue, {
+                toValue: 142.5,
+                timing: 1000
+            }).start(() => {
+                this.setState({ isFamilyShow: true })
+            });
+        }
     }
 
     ExamenesRoute = ({ route }) => {
@@ -80,7 +105,7 @@ class DocumentScreen extends Component {
     };
 
     render() {
-        const { index, routes, isFamilyShow } = this.state;
+        const { index, routes, isFamilyShow, animationValue, callModalVisible } = this.state;
 
         const renderScene = SceneMap({
             Examenes: this.ExamenesRoute,
@@ -93,7 +118,7 @@ class DocumentScreen extends Component {
                     barStyle='dark-content'
                     backgroundColor={Colors.White}
                 />
-                <SafeAreaView style={styles.container}>
+                <SafeAreaView>
                     <View style={styles.headerContainer}>
                         <View style={styles.profileContainer}>
                             <View style={styles.container}>
@@ -102,46 +127,50 @@ class DocumentScreen extends Component {
                             </View>
                         </View>
                         <View style={styles.headerBtnContainer}>
-                            <TouchableOpacity onPress={() => this.setState({ isFamilyShow: !isFamilyShow })}>
+                            <TouchableOpacity onPress={() => this.toggleAnimation()}>
                                 <Icon name={isFamilyShow ? 'chevron-up' : 'chevron-down'} type='MaterialCommunityIcons' style={styles.headerBtnIcon} />
                             </TouchableOpacity>
                         </View>
                     </View>
-                    {isFamilyShow &&
-                        <View style={styles.familyContainer}>
-                            <View style={styles.familyContent}>
-                                <Text style={styles.familyTitle}>Dependientes</Text>
-                            </View>
-                            <ScrollView
-                                horizontal
-                                showsHorizontalScrollIndicator={false}
-                                contentContainerStyle={styles.familyContentContainer}
-                            >
-                                <TouchableOpacity style={styles.item}>
-                                    <Image
-                                        source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQsJ5gR1bbR4bBk9BcDIYSVhVUdK5eGAUwri1P6hpZh-3LvlTpX&usqp=CAU' }}
-                                        style={styles.familyImage}
-                                    />
-                                    <Text style={styles.familySubTitle}>Ana M.</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.item}>
-                                    <Image
-                                        source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQsJ5gR1bbR4bBk9BcDIYSVhVUdK5eGAUwri1P6hpZh-3LvlTpX&usqp=CAU' }}
-                                        style={styles.familyImage}
-                                    />
-                                    <Text style={styles.familySubTitle}>Ana M.</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.item}>
-                                    <Image
-                                        source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQsJ5gR1bbR4bBk9BcDIYSVhVUdK5eGAUwri1P6hpZh-3LvlTpX&usqp=CAU' }}
-                                        style={styles.familyImage}
-                                    />
-                                    <Text style={styles.familySubTitle}>Ana M.</Text>
-                                </TouchableOpacity>
-                            </ScrollView>
+                </SafeAreaView>
+                <AnimatedHideView
+                    visible={isFamilyShow}
+                    duration={500}
+                >
+                    <Animated.View style={[styles.familyContainer, { height: animationValue }]}>
+                        <View style={styles.familyContent}>
+                            <Text style={styles.familyTitle}>Dependientes</Text>
                         </View>
-                    }
-                    <View style={styles.container}>
+                        <ScrollView
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            contentContainerStyle={styles.familyContentContainer}
+                        >
+                            <TouchableOpacity style={styles.item}>
+                                <Image
+                                    source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQsJ5gR1bbR4bBk9BcDIYSVhVUdK5eGAUwri1P6hpZh-3LvlTpX&usqp=CAU' }}
+                                    style={styles.familyImage}
+                                />
+                                <Text style={styles.familySubTitle}>Ana M.</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.item}>
+                                <Image
+                                    source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQsJ5gR1bbR4bBk9BcDIYSVhVUdK5eGAUwri1P6hpZh-3LvlTpX&usqp=CAU' }}
+                                    style={styles.familyImage}
+                                />
+                                <Text style={styles.familySubTitle}>Ana M.</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.item}>
+                                <Image
+                                    source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQsJ5gR1bbR4bBk9BcDIYSVhVUdK5eGAUwri1P6hpZh-3LvlTpX&usqp=CAU' }}
+                                    style={styles.familyImage}
+                                />
+                                <Text style={styles.familySubTitle}>Ana M.</Text>
+                            </TouchableOpacity>
+                        </ScrollView>
+                    </Animated.View>
+                </AnimatedHideView>
+                <View style={styles.container}>
                         <TabView
                             navigationState={{ index, routes }}
                             renderScene={renderScene}
@@ -150,12 +179,15 @@ class DocumentScreen extends Component {
                             initialLayout={{ width: WIDTH }}
                         />
                     </View>
-                </SafeAreaView>
                 <View style={globalStyles.phoneBtnContainer}>
-                    <TouchableOpacity style={globalStyles.phoneBtnContent}>
+                    <TouchableOpacity onPress={() => this.setState({ callModalVisible: true })} style={globalStyles.phoneBtnContent}>
                         <Icon name='phone' type='FontAwesome5' style={globalStyles.phoneBtnIcon} />
                     </TouchableOpacity>
                 </View>
+                <CallModalScreen
+                    callModalVisible={callModalVisible}
+                    onCloseModal={() => this.setState({ callModalVisible: false })}
+                />
             </Container>
         );
     }

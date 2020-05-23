@@ -8,17 +8,18 @@ import Colors from '../../constants/colors';
 import Header from '../../components/Header';
 import { getResponsiveHeight, getResponsiveWidth } from '../../helper/utils';
 import { RenderItemWithTime, RenderItemWithDateTime } from '../../components/ItemRenderComponents';
+import CallModalScreen from '../call';
 
 class AboutScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            callModalVisible: false,
         };
     }
 
     render() {
-        const { } = this.state;
+        const { callModalVisible } = this.state;
 
         return (
             <Container style={globalStyles.tabContainer}>
@@ -93,10 +94,14 @@ class AboutScreen extends Component {
                     </View>
                 </Content>
                 <View style={globalStyles.phoneBtnContainer}>
-                    <TouchableOpacity style={globalStyles.phoneBtnContent}>
+                    <TouchableOpacity onPress={() => this.setState({ callModalVisible: true })} style={globalStyles.phoneBtnContent}>
                         <Icon name='phone' type='FontAwesome5' style={globalStyles.phoneBtnIcon} />
                     </TouchableOpacity>
                 </View>
+                <CallModalScreen
+                    callModalVisible={callModalVisible}
+                    onCloseModal={() => this.setState({ callModalVisible: false })}
+                />
             </Container>
         );
     }

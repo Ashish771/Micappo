@@ -34,11 +34,11 @@ export default StyleSheet.create({
         color: Colors.TintColor
     },
     familyContainer: { 
-        paddingVertical: 10, 
         backgroundColor: Colors.TintColor 
     },
     familyContent: { 
-        paddingHorizontal: 20 
+        paddingHorizontal: 20,
+        paddingTop: 10  
     },
     familyContentContainer: { 
         paddingVertical: 10, 
@@ -75,4 +75,30 @@ export default StyleSheet.create({
         paddingHorizontal: 20, 
         paddingVertical: 10 
     },
+    filterContainer: { 
+        flexDirection: 'row', 
+        alignItems: 'center', 
+        paddingHorizontal: 10, 
+        marginHorizontal: 20, 
+        paddingVertical: 5, 
+        borderBottomColor: Colors.TintColor, 
+        borderBottomWidth: 1 
+    },
+    filterContent: {
+        flexDirection: 'row', alignItems: 'center'
+    },
+    filterTitle: {
+        fontSize: 18,
+        color: Colors.TintColor,
+        fontWeight: '600'
+    },
+    filterSubTitle: {
+        fontSize: 16,
+        color: Colors.TintColor,
+        fontWeight: '400'
+    },
+    filterIcon: {
+        color: Colors.TintColor, 
+        fontSize: 40 
+    }
 })

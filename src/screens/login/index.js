@@ -142,7 +142,7 @@ class LoginScreen extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.content}>
-                            <TouchableOpacity style={globalStyles.btnContainer}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} style={globalStyles.btnContainer}>
                                 <Text style={globalStyles.btnText}>Iniciar sesion</Text>
                             </TouchableOpacity>
                         </View>

@@ -30,25 +30,16 @@ export default StyleSheet.create({
     },
     phoneBtnContainer: {
         position: 'absolute', 
-        left: getResponsiveWidth(60) - 75, 
-        bottom: 50 
+        left: getResponsiveWidth(42), 
+        bottom: getResponsiveHeight(6) 
     },
     phoneBtnContent: {
         backgroundColor: Colors.TintColor, 
-        height: 70, 
-        width: 70, 
-        borderRadius: 70, 
+        height: getResponsiveWidth(16), 
+        width: getResponsiveWidth(16), 
+        borderRadius: getResponsiveWidth(16), 
         alignItems: 'center', 
         justifyContent: 'center',
-        // shadowColor: "#000",
-        // shadowOffset: {
-        //     width: 0,
-        //     height: 4,
-        // },
-        // shadowOpacity: 0.32,
-        // shadowRadius: 5.46,
-
-        // elevation: 9,
     },
     phoneBtnIcon: {
         color: Colors.White, 

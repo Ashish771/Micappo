@@ -34,11 +34,11 @@ export default StyleSheet.create({
         color: Colors.TintColor
     },
     familyContainer: { 
-        paddingVertical: 10, 
         backgroundColor: Colors.TintColor 
     },
     familyContent: { 
-        paddingHorizontal: 20 
+        paddingHorizontal: 20,
+        paddingTop: 10
     },
     familyContentContainer: { 
         paddingVertical: 10, 

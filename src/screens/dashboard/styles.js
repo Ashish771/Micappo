@@ -36,12 +36,12 @@ export default StyleSheet.create({
         color: Colors.TextColor, 
         fontSize: 45 
     },
-    familyContainer: { 
-        paddingVertical: 10, 
-        backgroundColor: Colors.TintColor 
+    familyContainer: {  
+        backgroundColor: Colors.TintColor,
     },
     familyContent: { 
-        paddingHorizontal: 20 
+        paddingHorizontal: 20,
+        paddingTop: 10 
     },
     familyContentContainer: { 
         paddingVertical: 10, 

@@ -34,9 +34,9 @@ export default StyleSheet.create({
 
     phoneBtnContent: {
         backgroundColor: Colors.TintColor, 
-        height: 70, 
-        width: 70, 
-        borderRadius: 70, 
+        height: getResponsiveWidth(16), 
+        width: getResponsiveWidth(16), 
+        borderRadius: getResponsiveWidth(16), 
         alignItems: 'center', 
         justifyContent: 'center',
         marginBottom: 10
