@@ -39,10 +39,10 @@ class ProfileScreen extends Component {
                         </View>
                         <View style={styles.content}>
                             <TouchableOpacity style={globalStyles.btnContainer}>
-                                <Text style={globalStyles.btnText}>Iniciar sesion</Text>
+                                <Text style={globalStyles.btnText}>Cambiar contraseña</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={globalStyles.btnContainer}>
-                                <Text style={globalStyles.btnText}>Iniciar sesion</Text>
+                                <Text style={globalStyles.btnText}>Cerrar Sesión</Text>
                             </TouchableOpacity>
                         </View>
                     </View>

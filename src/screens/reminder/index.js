@@ -15,8 +15,8 @@ class ReminderScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isFamilyShow: true,
-            animationValue: new Animated.Value(142.5),
+            isFamilyShow: false,
+            animationValue: new Animated.Value(0),
             callModalVisible: false,
         };
     }
@@ -107,12 +107,12 @@ class ReminderScreen extends Component {
                     <View style={styles.listContainer}>
                         <RenderItemWithTime />
                         <RenderItemWithDateTime />
-                        <View style={styles.addReminderContainer}>
+                        {/* <View style={styles.addReminderContainer}>
                             <View style={styles.addReminderContent}>
                                 <Text style={styles.addReminderText}>Nuevo recordatorios</Text>
                                 <Icon name='alarm-plus' type='MaterialCommunityIcons' style={styles.addReminderIcon} />
                             </View>
-                        </View>
+                        </View> */}
                     </View>
                 </Content>
                 <View style={globalStyles.phoneBtnContainer}>

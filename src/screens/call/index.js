@@ -63,7 +63,7 @@ class CallModalScreen extends Component {
                                     <Icon name='chevron-down' type='Entypo' style={globalStyles.backBtnIcon} />
                                 </TouchableOpacity>
                             </View>
-                            <Content contentContainerStyle={{ paddingTop: getResponsiveHeight(10), paddingBottom: getResponsiveHeight(5) }}>
+                            <Content contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
                                 <View>
                                     <FlatList
                                         contentContainerStyle={{ paddingHorizontal: getResponsiveWidth(34) }}

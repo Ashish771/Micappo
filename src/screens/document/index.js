@@ -20,8 +20,8 @@ class DocumentScreen extends Component {
                 { key: 'Examenes', title: 'Examenes' },
                 { key: 'Recetas', title: 'Recetas' }
             ],
-            isFamilyShow: true,
-            animationValue: new Animated.Value(142.5),
+            isFamilyShow: false,
+            animationValue: new Animated.Value(0),
             callModalVisible: false,
         };
     }

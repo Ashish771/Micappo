@@ -54,6 +54,9 @@ const DocumentStack = createStackNavigator({
 const HistoryStack = createStackNavigator({
     History: {
         screen: HistoryScreen,
+    },
+    DiagnosticDetail: {
+        screen: DoctorDetailScreen
     }
 }, {
     headerMode: 'none'

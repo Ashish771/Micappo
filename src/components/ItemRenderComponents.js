@@ -100,7 +100,7 @@ export class RenderItemWithDetailWithBtn extends Component {
                     </View>
                 </View>
                 <View style={{ paddingHorizontal: 10 }}>
-                    <TouchableOpacity style={globalStyles.btnContainer}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('DiagnosticDetail')} style={globalStyles.btnContainer}>
                         <Text style={globalStyles.btnText}>Ver Diagnóstico</Text>
                     </TouchableOpacity>
                 </View>
@@ -131,7 +131,7 @@ export class RenderItemWithDateTimeWithBtn extends Component {
                     </View>
                 </View>
                 <View style={{ paddingHorizontal: 10 }}>
-                    <TouchableOpacity style={globalStyles.btnContainer}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('DiagnosticDetail')} style={globalStyles.btnContainer}>
                         <Text style={globalStyles.btnText}>Ver Diagnóstico</Text>
                     </TouchableOpacity>
                 </View>

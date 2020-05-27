@@ -15,8 +15,8 @@ class HistoryScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isFamilyShow: true,
-            animationValue: new Animated.Value(142.5),
+            isFamilyShow: false,
+            animationValue: new Animated.Value(0),
             callModalVisible: false,
         };
     }
@@ -114,8 +114,8 @@ class HistoryScreen extends Component {
                 </View>
                 <Content>
                     <View style={styles.listContainer}>
-                        <RenderItemWithDetailWithBtn />
-                        <RenderItemWithDateTimeWithBtn />
+                        <RenderItemWithDetailWithBtn navigation={this.props.navigation} />
+                        <RenderItemWithDateTimeWithBtn navigation={this.props.navigation} />
                     </View>
                 </Content>
                 <View style={globalStyles.phoneBtnContainer}>

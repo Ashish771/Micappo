@@ -39,7 +39,7 @@ class WelcomeScreen extends Component {
                                     <Text style={globalStyles.btnText}>Iniciar sesion</Text>
                                 </TouchableOpacity>
                             </View>
-                            <TouchableOpacity style={styles.footerContainer}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')} style={styles.footerContainer}>
                                 <Text style={styles.footerBtnText}>Crear una cuenta</Text>
                             </TouchableOpacity>
                         </View>

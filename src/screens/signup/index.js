@@ -128,6 +128,7 @@ class SignupScreen extends Component {
                         <View style={styles.content}>
                             <TextField
                                 label='Celular'
+                                keyboardType='phone-pad'
                                 tintColor={Colors.TintColor}
                                 value={this.state.password}
                                 onChangeText={(password) => this.setState({ password })}
@@ -176,7 +177,7 @@ class SignupScreen extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.footerContainer}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
                                 <Text style={styles.footerText}>Ya tengo una cuenta</Text>
                             </TouchableOpacity>
                         </View>
